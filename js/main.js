@@ -1,5 +1,6 @@
 import galleryItems from "./gallery-items.js"
 
+console.dir(galleryItems)
 const galleryRef = document.querySelector('.js-gallery')
 const lightBoxRef = document.querySelector('.js-lightbox')
 const btnModalRef = document.querySelector('button[data-action="close-lightbox"]')
@@ -32,13 +33,22 @@ const createImgCard = images => {
   toImgList.classList.add('gallery__image')
     toImgList.src = images.preview
     toImgList.dataset.source =images.original
-  toImgList.alt = images.description    
+    toImgList.alt = images.description   
     imgLink.append(toImgList) 
     imgList.append(imgLink)
+  
+ 
+    
+     
+
     return imgList;
 }
 
-const imgGallery = galleryItems.map(galleryItems => createImgCard(galleryItems))
+
+const imgGallery = galleryItems.map(galleryItems => 
+    createImgCard(galleryItems))
+     
+
 galleryRef.append(...imgGallery)
 
 function openmodal() {
